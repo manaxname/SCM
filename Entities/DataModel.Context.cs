@@ -25,5 +25,8 @@ namespace Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserAddress> UserAddresses { get; set; }
     }
 }

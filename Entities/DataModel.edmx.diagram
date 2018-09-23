@@ -4,7 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d7c1f8080fcc4a73ba310f4096c1a35e" Name="Diagram1" />
+      <Diagram DiagramId="d7c1f8080fcc4a73ba310f4096c1a35e" Name="Diagram1" >
+        <EntityTypeShape EntityType="SCMModel.Address" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="SCMModel.User" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="SCMModel.UserAddress" Width="1.5" PointX="3" PointY="1.25" />
+        <AssociationConnector Association="SCMModel.FK_UserAddress_Address" />
+        <AssociationConnector Association="SCMModel.FK_UserAddress_User" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
