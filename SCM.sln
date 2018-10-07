@@ -5,12 +5,9 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{110B04E9-8819-45C6-BD62-74F21160D0AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{F0E55043-3D65-4046-BE06-F6019E94A12B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{F0E55043-3D65-4046-BE06-F6019E94A12B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{66C706A9-62A9-4101-8DEC-E9D1AB562F20}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F0E55043-3D65-4046-BE06-F6019E94A12B} = {F0E55043-3D65-4046-BE06-F6019E94A12B}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

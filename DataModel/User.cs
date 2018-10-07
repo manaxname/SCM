@@ -7,27 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+namespace DataModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Address
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Address()
+        public User()
         {
             this.UserAddresses = new HashSet<UserAddress>();
         }
     
         public int Id { get; set; }
-        public short NumberOfBuildings { get; set; }
-        public int Zip { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string District { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patronymic { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserAddress> UserAddresses { get; set; }

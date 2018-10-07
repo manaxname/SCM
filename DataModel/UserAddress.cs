@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+namespace DataModel
 {
     using System;
     using System.Collections.Generic;
