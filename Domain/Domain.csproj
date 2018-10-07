@@ -38,6 +38,7 @@
       <HintPath>..\packages\CoreUtils.3.0.32\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,14 @@
     <Compile Include="General\GeneralValueObject.cs" />
     <Compile Include="General\IValueObject.cs" />
     <Compile Include="General\ValueObject.cs" />
+    <Compile Include="Modules\Client\ClientEntity.cs" />
+    <Compile Include="Modules\Client\ClientEntityBuilder.cs" />
+    <Compile Include="Modules\Client\Email.cs" />
+    <Compile Include="Modules\Phones\BelarusPhoneNumber.cs" />
+    <Compile Include="Modules\Phones\CountryPhoneCodeEnum.cs" />
+    <Compile Include="Modules\Phones\InternationalPhoneNumber.cs" />
+    <Compile Include="Modules\Phones\PhoneNumberBuilder.cs" />
+    <Compile Include="Modules\Phones\PhoneNumberValidatorAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +70,7 @@
       <Name>DataModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

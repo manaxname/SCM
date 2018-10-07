@@ -2,7 +2,7 @@
 
 namespace Domain.General
 {
-	public abstract class ValueObject : IValueObject
+	public abstract class ValueObject<T> : IValueObject
 	{
 		protected abstract bool IsEqualTo(IValueObject other);
 		protected abstract int GetHashCodeImpl();
@@ -28,7 +28,7 @@ namespace Domain.General
 
 		public override string ToString()
 		{
-			return nameof(ValueObject);
+			return nameof(ValueObject<T>);
 		}
 	}
 }
