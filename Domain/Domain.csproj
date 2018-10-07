@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="General\Entity.cs" />
     <Compile Include="General\Exceptions\InvalidCastToValueObjectException.cs" />
     <Compile Include="General\GeneralValueObject.cs" />
     <Compile Include="General\IValueObject.cs" />
