@@ -31,11 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreDdd, Version=3.0.31.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreDdd.3.0.31\lib\net45\CoreDdd.dll</HintPath>
+    <Reference Include="CoreDdd, Version=3.0.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreDdd.3.0.32\lib\net45\CoreDdd.dll</HintPath>
     </Reference>
-    <Reference Include="CoreUtils, Version=3.0.31.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CoreUtils.3.0.31\lib\net40\CoreUtils.dll</HintPath>
+    <Reference Include="CoreUtils, Version=3.0.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreUtils.3.0.32\lib\net40\CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,16 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="General\Exceptions\InvalidCastToValueObjectException.cs" />
+    <Compile Include="General\GeneralValueObject.cs" />
+    <Compile Include="General\IValueObject.cs" />
+    <Compile Include="General\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{f0e55043-3d65-4046-be06-f6019e94a12b}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
