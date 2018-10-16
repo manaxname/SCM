@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Domain.General;
 using Domain.Modules.Phones;
 
@@ -16,5 +17,7 @@ namespace Domain.Modules.Client
 		public string Surname { get; internal set; }
 		public string Patronymic { get; internal set; }
 		public DateTime? BirthDay { get; internal set; }
+
+		public ReadOnlyCollection<Address> Addresses { get; internal set; }
 	}
 }

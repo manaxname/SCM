@@ -54,6 +54,7 @@
     <Compile Include="General\GeneralValueObject.cs" />
     <Compile Include="General\IValueObject.cs" />
     <Compile Include="General\ValueObject.cs" />
+    <Compile Include="Modules\Client\Address.cs" />
     <Compile Include="Modules\Client\ClientEntity.cs" />
     <Compile Include="Modules\Client\ClientEntityBuilder.cs" />
     <Compile Include="Modules\Client\Email.cs" />
