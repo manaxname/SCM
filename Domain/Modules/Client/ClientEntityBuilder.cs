@@ -1,4 +1,5 @@
-﻿using DataModel;
+﻿using System;
+using DataModel;
 using Domain.Modules.Phones;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,37 @@ namespace Domain.Modules.Client
 			return entity;
 		}
 
-		public void AddNewAddress(ClientEntity entity, Address address)
+		public void SetNewEmail(ClientEntity entity, string origin)
+		{
+			entity.Email = new Email(origin);
+		}
+
+		public void SetNewBirthDay(ClientEntity entity, DateTime? origin)
+		{
+			entity.BirthDay = origin;
+		}
+
+		public void SetNewName(ClientEntity entity, string origin)
+		{
+			entity.Name = origin;
+		}
+
+		public void SetNewPatronymic(ClientEntity entity, string origin)
+		{
+			entity.Patronymic = origin;
+		}
+
+		public void SetNewSurname(ClientEntity entity, string origin)
+		{
+			entity.Surname = origin;
+		}
+
+		public void SetNewPhoneNumber(ClientEntity entity, string origin)
+		{
+			entity.PhoneNumber = PhoneNumberBuilder.BuildPhoneNumber(origin, CountryPhoneCodeEnum.Belarus);
+		}
+
+		public static void AddNewAddress(ClientEntity entity, Address address)
 		{
 			IList<Address> addresses = new List<Address>(entity.Addresses.Count + 1);
 			foreach (Address entityAddress in entity.Addresses)
@@ -36,7 +67,7 @@ namespace Domain.Modules.Client
 			entity.Addresses = new ReadOnlyCollection<Address>(addresses);
 		}
 
-		private void BuildAddress(ClientEntity entity, IEnumerable<UserAddress> addresses)
+		private static void BuildAddress(ClientEntity entity, IEnumerable<UserAddress> addresses)
 		{
 			if (addresses == null)
 				return;
