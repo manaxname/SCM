@@ -18,6 +18,19 @@
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="Country" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SCM.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsOnSale" />
+          </Key>
+          <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsOnSale" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -66,6 +79,14 @@
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Product].[Code] AS [Code], 
+    [Product].[Name] AS [Name], 
+    [Product].[Description] AS [Description], 
+    [Product].[IsOnSale] AS [IsOnSale]
+    FROM [dbo].[Product] AS [Product]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_UserAddress_Address" Association="Self.FK_UserAddress_Address">
             <End Role="Address" EntitySet="Address" />
             <End Role="UserAddress" EntitySet="UserAddress" />
@@ -91,6 +112,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserAddress" EntitySet="UserAddresses" />
           </AssociationSet>
+          <EntitySet Name="Products" EntityType="SCMModel.Product" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -153,6 +175,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsOnSale" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsOnSale" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -192,6 +225,16 @@
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SCMModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="IsOnSale" ColumnName="IsOnSale" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -73,5 +73,6 @@
   <ItemGroup>
     <None Include="Database.local.publish.xml" />
     <None Include="Database.test.publish.xml" />
+    <Build Include="DatabaseSchema\Tables\dbo.Product.sql" />
   </ItemGroup>
 </Project>

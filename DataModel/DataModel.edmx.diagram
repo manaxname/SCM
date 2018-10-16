@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="SCMModel.UserAddress" Width="1.5" PointX="3" PointY="1.25" />
         <AssociationConnector Association="SCMModel.FK_UserAddress_Address" />
         <AssociationConnector Association="SCMModel.FK_UserAddress_User" />
+        <EntityTypeShape EntityType="SCMModel.Product" Width="1.5" PointX="12.5" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

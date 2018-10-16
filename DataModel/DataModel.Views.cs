@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(DataModel.SCMEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets0ec878495d069790f3c571e26969cd67e8574a45a9159d06565924c5993239b2))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework 6 Power Tools", "0.9.2.0")]
-    internal sealed class ViewsForBaseEntitySets0ec878495d069790f3c571e26969cd67e8574a45a9159d06565924c5993239b2 : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySets87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "0ec878495d069790f3c571e26969cd67e8574a45a9159d06565924c5993239b2"; }
+            get { return "87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e"; }
         }
 
         /// <summary>
@@ -75,6 +75,16 @@ namespace Edm_EntityMappingGeneratedViews
             if (extentName == "SCMEntities.UserAddresses")
             {
                 return GetView5();
+            }
+
+            if (extentName == "SCMModelStoreContainer.Product")
+            {
+                return GetView6();
+            }
+
+            if (extentName == "SCMEntities.Products")
+            {
+                return GetView7();
             }
 
             return null;
@@ -209,6 +219,46 @@ namespace Edm_EntityMappingGeneratedViews
             T.AddressId AS UserAddress_AddressId, 
             True AS _from0
         FROM SCMModelStoreContainer.UserAddress AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for SCMModelStoreContainer.Product.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView6()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Product
+        [SCMModel.Store.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_IsOnSale)
+    FROM (
+        SELECT 
+            T.Code AS Product_Code, 
+            T.Name AS Product_Name, 
+            T.Description AS Product_Description, 
+            T.IsOnSale AS Product_IsOnSale, 
+            True AS _from0
+        FROM SCMEntities.Products AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for SCMEntities.Products.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView7()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Products
+        [SCMModel.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_IsOnSale)
+    FROM (
+        SELECT 
+            T.Code AS Product_Code, 
+            T.Name AS Product_Name, 
+            T.Description AS Product_Description, 
+            T.IsOnSale AS Product_IsOnSale, 
+            True AS _from0
+        FROM SCMModelStoreContainer.Product AS T
     ) AS T1");
         }
     }
