@@ -30,5 +30,15 @@ namespace Domain.General
 		{
 			return nameof(ValueObject<T>);
 		}
+
+		public static bool operator ==(ValueObject<T> main, ValueObject<T> other)
+		{
+			return main != null && ReferenceEquals(main, other) && main.Equals(other);
+		}
+
+		public static bool operator !=(ValueObject<T> main, ValueObject<T> other)
+		{
+			return !(main == other);
+		}
 	}
 }

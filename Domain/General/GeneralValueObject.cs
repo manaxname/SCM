@@ -23,5 +23,10 @@ namespace Domain.General
 		{
 			return Value.ToString();
 		}
+
+		public static implicit operator string(GeneralValueObject<T> obj)
+		{
+			return obj.ToString();
+		}
 	}
 }
