@@ -24,12 +24,12 @@ warning 6002: The table/view 'SCM.dbo.Product' does not have a primary key defin
           <Key>
             <PropertyRef Name="Code" />
             <PropertyRef Name="Name" />
-            <PropertyRef Name="IsOnSale" />
+            <PropertyRef Name="Status" />
           </Key>
           <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="IsOnSale" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -84,7 +84,7 @@ warning 6002: The table/view 'SCM.dbo.Product' does not have a primary key defin
     [Product].[Code] AS [Code], 
     [Product].[Name] AS [Name], 
     [Product].[Description] AS [Description], 
-    [Product].[IsOnSale] AS [IsOnSale]
+    [Product].[Status] AS [Status]
     FROM [dbo].[Product] AS [Product]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_UserAddress_Address" Association="Self.FK_UserAddress_Address">
@@ -179,12 +179,12 @@ warning 6002: The table/view 'SCM.dbo.Product' does not have a primary key defin
           <Key>
             <PropertyRef Name="Code" />
             <PropertyRef Name="Name" />
-            <PropertyRef Name="IsOnSale" />
+            <PropertyRef Name="Status" />
           </Key>
           <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsOnSale" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -231,7 +231,7 @@ warning 6002: The table/view 'SCM.dbo.Product' does not have a primary key defin
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="SCMModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="IsOnSale" ColumnName="IsOnSale" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Code" ColumnName="Code" />

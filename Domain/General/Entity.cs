@@ -5,6 +5,6 @@
 		// ReSharper disable once VirtualMemberCallInConstructor
 		protected Entity(int id) => Id = id;
 
-		public bool IsChanged { get; internal set; }
+		public bool IsChanged { get; internal set; } = false;
 	}
 }

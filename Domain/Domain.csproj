@@ -63,12 +63,19 @@
     <Compile Include="Modules\Phones\InternationalPhoneNumber.cs" />
     <Compile Include="Modules\Phones\PhoneNumberBuilder.cs" />
     <Compile Include="Modules\Phones\PhoneNumberValidatorAttribute.cs" />
+    <Compile Include="Modules\Product\ProductEntity.cs" />
+    <Compile Include="Modules\Product\ProductEntityBuilder.cs" />
+    <Compile Include="Modules\Product\ProductStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{f0e55043-3d65-4046-be06-f6019e94a12b}</Project>
       <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{720E77F0-3269-4C2F-9777-5699031FC103}</Project>
+      <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
