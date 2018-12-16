@@ -10,7 +10,7 @@ namespace Domain.Modules.Client
 	{
 		private static readonly PhoneNumberBuilder PhoneNumberBuilder = new PhoneNumberBuilder();
 
-		internal ClientEntity BuildClient(User origin)
+		public ClientEntity BuildClient(User origin)
 		{
 			var entity = new ClientEntity(origin.Id)
 			{
