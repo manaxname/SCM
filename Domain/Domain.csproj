@@ -63,6 +63,8 @@
     <Compile Include="Modules\Phones\InternationalPhoneNumber.cs" />
     <Compile Include="Modules\Phones\PhoneNumberBuilder.cs" />
     <Compile Include="Modules\Phones\PhoneNumberValidatorAttribute.cs" />
+    <Compile Include="Modules\Product\CategoryEntity.cs" />
+    <Compile Include="Modules\Product\CategoryEntityBuilder.cs" />
     <Compile Include="Modules\Product\ProductEntity.cs" />
     <Compile Include="Modules\Product\ProductEntityBuilder.cs" />
     <Compile Include="Modules\Product\ProductStatus.cs" />

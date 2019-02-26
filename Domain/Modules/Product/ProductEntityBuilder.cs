@@ -4,7 +4,7 @@ namespace Domain.Modules.Product
 {
 	public class ProductEntityBuilder
 	{
-		public ProductEntity BuildProduct(DataModel.Product origin)
+		public static ProductEntity BuildProduct(DataModel.Product origin)
 		{
 			var product = new ProductEntity(origin.Code);
 			product.Description = origin.Description;
@@ -13,27 +13,35 @@ namespace Domain.Modules.Product
 			product.IsOnSale = status == ProductStatus.InStock || status == ProductStatus.ReadyToOrder ||
 			                   status == ProductStatus.Sold;
 			product.Status = status;
+			product.Category = CategoryEntityBuilder.BuildCategory(origin.Category);
 			return product;
 		}
 
-		public void SetDescription(ProductEntity product, string description)
+		public static void SetDescription(ProductEntity product, string description)
 		{
 			product.Description = description;
 			product.IsChanged = true;
 		}
 
-		public void SetName(ProductEntity product, string name)
+		public static void SetName(ProductEntity product, string name)
 		{
 			product.Name = name;
 			product.IsChanged = true;
 		}
 
-		public void SetStatus(ProductEntity product, ProductStatus status)
+		public static void SetStatus(ProductEntity product, ProductStatus status)
 		{
 			product.Status = status;
 			product.IsOnSale = status == ProductStatus.InStock || status == ProductStatus.ReadyToOrder ||
 			                   status == ProductStatus.Sold;
 			product.IsChanged = true;
+		}
+
+		public static void SetCategory(ProductEntity product, CategoryEntity category)
+		{
+			CategoryEntityBuilder.RemovePropertyFromCategory(product);
+			product.Category = category;
+			CategoryEntityBuilder.AddProductToCategory(category, product);
 		}
 	}
 }
