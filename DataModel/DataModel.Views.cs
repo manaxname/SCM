@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(DataModel.SCMEntities),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsde71e167eb283c44614bf6d15557e41093cd39dd9b16382b7a5065e46a903ddb))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework 6 Power Tools", "0.9.2.0")]
-    internal sealed class ViewsForBaseEntitySets87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySetsde71e167eb283c44614bf6d15557e41093cd39dd9b16382b7a5065e46a903ddb : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "87c6543b10b9a0df80e1b831818bac3a9acf9e0336318509b084ae84e2a23e4e"; }
+            get { return "de71e167eb283c44614bf6d15557e41093cd39dd9b16382b7a5065e46a903ddb"; }
         }
 
         /// <summary>
@@ -77,14 +77,24 @@ namespace Edm_EntityMappingGeneratedViews
                 return GetView5();
             }
 
-            if (extentName == "SCMModelStoreContainer.Product")
+            if (extentName == "SCMModelStoreContainer.Category")
             {
                 return GetView6();
             }
 
-            if (extentName == "SCMEntities.Products")
+            if (extentName == "SCMModelStoreContainer.Product")
             {
                 return GetView7();
+            }
+
+            if (extentName == "SCMEntities.Categories")
+            {
+                return GetView8();
+            }
+
+            if (extentName == "SCMEntities.Products")
+            {
+                return GetView9();
             }
 
             return null;
@@ -223,22 +233,61 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
-        /// Gets the view for SCMModelStoreContainer.Product.
+        /// Gets the view for SCMModelStoreContainer.Category.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView6()
         {
             return new DbMappingView(@"
+    SELECT VALUE -- Constructing Category
+        [SCMModel.Store.Category](T1.Category_Id, T1.Category_Name, T1.Category_ParentCategoryId)
+    FROM (
+        SELECT 
+            T.Id AS Category_Id, 
+            T.Name AS Category_Name, 
+            T.ParentCategoryId AS Category_ParentCategoryId, 
+            True AS _from0
+        FROM SCMEntities.Categories AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for SCMModelStoreContainer.Product.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView7()
+        {
+            return new DbMappingView(@"
     SELECT VALUE -- Constructing Product
-        [SCMModel.Store.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_IsOnSale)
+        [SCMModel.Store.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_Status, T1.Product_CategoryId)
     FROM (
         SELECT 
             T.Code AS Product_Code, 
             T.Name AS Product_Name, 
             T.Description AS Product_Description, 
-            T.IsOnSale AS Product_IsOnSale, 
+            T.Status AS Product_Status, 
+            T.CategoryId AS Product_CategoryId, 
             True AS _from0
         FROM SCMEntities.Products AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for SCMEntities.Categories.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView8()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Categories
+        [SCMModel.Category](T1.Category_Id, T1.Category_Name, T1.Category_ParentCategoryId)
+    FROM (
+        SELECT 
+            T.Id AS Category_Id, 
+            T.Name AS Category_Name, 
+            T.ParentCategoryId AS Category_ParentCategoryId, 
+            True AS _from0
+        FROM SCMModelStoreContainer.Category AS T
     ) AS T1");
         }
 
@@ -246,17 +295,18 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for SCMEntities.Products.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView7()
+        private static DbMappingView GetView9()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Products
-        [SCMModel.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_IsOnSale)
+        [SCMModel.Product](T1.Product_Code, T1.Product_Name, T1.Product_Description, T1.Product_Status, T1.Product_CategoryId)
     FROM (
         SELECT 
             T.Code AS Product_Code, 
             T.Name AS Product_Name, 
             T.Description AS Product_Description, 
-            T.IsOnSale AS Product_IsOnSale, 
+            T.Status AS Product_Status, 
+            T.CategoryId AS Product_CategoryId, 
             True AS _from0
         FROM SCMModelStoreContainer.Product AS T
     ) AS T1");

@@ -28,6 +28,7 @@ namespace DataModel
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserAddress> UserAddresses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }
